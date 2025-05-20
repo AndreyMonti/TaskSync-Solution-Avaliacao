@@ -8,8 +8,13 @@ if (!isset($_SESSION['user'])) {
     exit;
 }
 
-$data = json_decode(file_get_contents('php://input'), true);
-$id = isset($data['task_id']) ? (int)$data['task_id'] : 0;
+$contentType = $_SERVER['CONTENT_TYPE'] ?? '';
+if (stripos($contentType, 'application/json') !== false) {
+    $data = json_decode(file_get_contents('php://input'), true);
+    $id = isset($data['task_id']) ? (int)$data['task_id'] : 0;
+} else {
+    $id = isset($_POST['task_id']) ? (int)$_POST['task_id'] : 0;
+}
 
 if ($id > 0) {
     try {

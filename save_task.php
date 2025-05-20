@@ -6,24 +6,24 @@ if (!isset($_SESSION['user'])) {
 }
 require_once 'conexao.php';
 
-$titulo = $_POST['titulo'] ?? '';
 $conteudo = $_POST['conteudo'] ?? '';
+$titulo = $_POST['titulo'] ?? '';
 $categoria = $_POST['categoria'] ?? '';
-$user_id = $_SESSION['user']['id'];
 $task_date = date('Y-m-d H:i:s');
+$user_id = $_SESSION['user']['id'];
 
-if (empty($titulo) || empty($conteudo) || empty($categoria)) {
+if (empty($conteudo) || empty($titulo) || empty($categoria)) {
     $_SESSION['flash_error'] = 'Preencha todos os campos!';
-    header('Location: adm.php');
+    header('Location: CRUD_task.php');
     exit();
 }
 
 try {
     $sql = "INSERT INTO task 
-              (task_title, task_content, task_category, user_id, task_date) 
+              (task_content, task_title, task_category, task_date, user_id ) 
             VALUES (?, ?, ?, ?, ?)";
     $stmt = $conn->prepare($sql);
-    $stmt->execute([$titulo, $conteudo, $categoria, $user_id, $task_date]);
+    $stmt->execute([$conteudo, $titulo, $categoria, $task_date, $user_id]);
 
     $_SESSION['flash_success'] = 'Task publicada com sucesso!';
 } catch (PDOException $e) {

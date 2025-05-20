@@ -1,6 +1,7 @@
 <?php
 require_once 'conexao.php';
 
+
 if (!isset($conn)) {
     die("Erro: Conexão com o banco de dados não foi estabelecida.");
 }
@@ -31,7 +32,7 @@ try {
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
-    <link rel="icon" type="image/png" href="./img/logo/logotop.png">
+    <link rel="icon" type="image/png" href="./img/TaskSynch-Icon.png">
     <script src="noticias.js" defer></script>
 </head>
 
@@ -65,8 +66,11 @@ try {
         </div>
     </section>
 
-    <div class="cadastro">
-        <p>Editar tasks <a href="CRUD_task.php">Editar</a></p>
+    <div class="btn-cadastro">
+            <a href="CRUD_task.php">Editar</a>
+    </div>
+        <div class="btn-cadastro">
+            <a href="logout.php">Logout</a>
     </div>
 
 </body>
