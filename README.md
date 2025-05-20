@@ -16,10 +16,6 @@ Site de gerenciamento de Tasks (tarefas) em PHP, que permite cadastrar usuários
   - [3. Publicar nova Task](#3-publicar-nova-task)  
   - [4. Editar Task existente](#4-editar-task-existente)  
   - [5. Excluir Task existente](#5-excluir-task-existente)  
-- [Problemas comuns](#problemas-comuns)  
-- [Estrutura de pastas](#estrutura-de-pastas)  
-- [Licença](#licença)
-
 ---
 
 ## Pré-requisitos
